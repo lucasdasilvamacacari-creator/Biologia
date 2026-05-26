@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -160,7 +161,6 @@
 </head>
 <body>
 
-<!-- Install Banner -->
 <div id="install-banner">
   <span style="font-size:.87rem">📖 Instale como app para estudar offline</span>
   <div style="display:flex;gap:8px;align-items:center">
@@ -169,7 +169,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ HOME ════════════════ -->
 <div id="page-home">
   <div class="hero" style="padding:48px 18px 38px">
     <div style="max-width:700px;margin:0 auto;position:relative;z-index:1">
@@ -177,7 +176,6 @@
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:clamp(1.85rem,6vw,2.75rem);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em">Análise<br/>Linguística</h1>
       <p style="font-family:'Lora',serif;font-style:italic;color:var(--b300);font-size:.97rem;margin:0 0 28px">Lucas M</p>
 
-      <!-- Progress -->
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:26px">
         <div style="height:3px;flex:1;background:rgba(255,255,255,.1);border-radius:2px">
           <div id="progress-bar" style="height:100%;background:var(--rustl);border-radius:2px;width:0%;transition:width .4s ease"></div>
@@ -185,7 +183,6 @@
         <span id="progress-text" style="color:var(--b400);font-size:.77rem;white-space:nowrap">0 / 6 tópicos</span>
       </div>
 
-      <!-- Pills -->
       <div style="display:flex;flex-wrap:wrap;gap:8px">
         <button class="nav-pill" onclick="goTo('literal')"><span class="dot"></span>Literal × Figurado</button>
         <button class="nav-pill" onclick="goTo('figuras')"><span class="dot"></span>Figuras de Linguagem</button>
@@ -233,7 +230,6 @@
       </button>
     </div>
 
-    <!-- Keywords teaser -->
     <div style="margin-top:22px;background:var(--b100);border-radius:16px;padding:18px 20px;border:1px solid var(--b300)">
       <p style="font-family:'Playfair Display',serif;font-weight:700;color:var(--br8);margin:0 0 11px;font-size:.98rem">Palavras-chave para memorizar</p>
       <div>
@@ -241,6 +237,10 @@
         <span class="kpill rust">Comparação → usa "como"</span>
         <span class="kpill sage">Sinestesia → mistura sentidos</span>
         <span class="kpill br6">Catacrese → nome adaptado</span>
+        <span class="kpill">Metonímia → troca por associação</span>
+        <span class="kpill rust">Sinédoque → parte pelo todo</span>
+        <span class="kpill sage">Hipérbole → exagero</span>
+        <span class="kpill br6">Eufemismo → suavização</span>
         <span class="kpill bei">Literal → real</span>
         <span class="kpill bei">Figurado → simbólico</span>
         <span class="kpill br7">Citação → trecho direto</span>
@@ -256,7 +256,6 @@
   </div>
 </div>
 
-<!-- TOPBAR (inner pages) -->
 <div class="topbar" id="topbar" style="display:none">
   <div class="topbar-inner">
     <button class="back-btn" onclick="goHome()">
@@ -268,7 +267,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ LITERAL × FIGURADO ════════════════ -->
 <div id="page-literal" class="section-card">
   <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
 
@@ -300,7 +298,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ FIGURAS DE LINGUAGEM ════════════════ -->
 <div id="page-figuras" class="section-card">
   <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
 
@@ -329,22 +326,58 @@
       <p style="font-size:.87rem;color:var(--br6)">Sentidos: visão · audição · tato · paladar · olfato</p>
       <div class="exemplo">"Uma voz <b>doce</b>."</div>
       <p>"Doce" é paladar. "Voz" é audição. Misturou sentidos = sinestesia.</p>
-      <div class="exemplo">"Perfume quente" · "Cor gritante"</div>
+      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Perfume quente" · "Cor gritante"</p>
       <div class="macete">Dois sentidos diferentes na mesma ideia = Sinestesia.</div>
     </div>
 
     <div class="card" style="border-left:5px solid var(--br6)">
       <span class="badge b-bei">Catacrese</span>
       <p>Usa uma palavra porque não existe outra melhor.</p>
-      <div class="exemplo">"Braço da cadeira" · "Pé da mesa" · "Dente do alho"</div>
+      <div class="exemplo">"Braço da cadeira"</div>
       <p>Mesa não tem pé de verdade. Mas usamos isso automaticamente.</p>
+      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Pé da mesa" · "Dente do alho"</p>
       <div class="macete">Catacrese = apelido oficial das coisas.</div>
+    </div>
+
+    <div class="card" style="border-left:5px solid var(--br8)">
+      <span class="badge b-br">Metonímia</span>
+      <p>Troca uma palavra por outra que tenha relação.</p>
+      <div class="exemplo">"Li Machado de Assis."</div>
+      <p>Não leu a pessoa. Leu a obra escrita por ele.</p>
+      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Tomar um copo d’água" · "Ouvir Beethoven"</p>
+      <div class="macete">Metonímia = troca por proximidade/associação.</div>
+    </div>
+
+    <div class="card" style="border-left:5px solid var(--rust)">
+      <span class="badge b-rust">Sinédoque</span>
+      <p>Troca uma ideia pelo todo ou o todo pela parte.</p>
+      <div class="exemplo">"Há muitas bocas para alimentar."</div>
+      <p>"Bocas" representa pessoas.</p>
+      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "O Brasil ganhou o jogo" · "Cem cabeças de gado"</p>
+      <div class="macete">Sinédoque = parte pelo todo ou todo pela parte.</div>
+    </div>
+
+    <div class="card" style="border-left:5px solid var(--sage)">
+      <span class="badge b-sage">Hipérbole</span>
+      <p>Exagero intencional.</p>
+      <div class="exemplo">"Estou morrendo de fome."</div>
+      <p>A pessoa não está morrendo de verdade. Foi um exagero para intensificar a ideia.</p>
+      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Chorei rios" · "Esperei uma eternidade"</p>
+      <div class="macete">Hipérbole = exagero.</div>
+    </div>
+
+    <div class="card" style="border-left:5px solid var(--br6)">
+      <span class="badge b-bei">Eufemismo</span>
+      <p>Suaviza uma ideia desagradável.</p>
+      <div class="exemplo">"Ele partiu dessa para melhor."</div>
+      <p>Evita dizer diretamente "morreu".</p>
+      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Ela descansou" · "Foi morar com Deus"</p>
+      <div class="macete">Eufemismo = suavização de uma ideia forte/triste.</div>
     </div>
 
   </div>
 </div>
 
-<!-- ═══════════════ SIGNO LINGUÍSTICO ════════════════ -->
 <div id="page-signo" class="section-card">
   <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
 
@@ -391,7 +424,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ INTERTEXTUALIDADE ════════════════ -->
 <div id="page-intertextualidade" class="section-card">
   <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
 
@@ -423,7 +455,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ COMO IDENTIFICAR ════════════════ -->
 <div id="page-como-identificar" class="section-card">
   <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
 
@@ -464,7 +495,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ TREINO RÁPIDO ════════════════ -->
 <div id="page-treino" class="section-card">
   <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
 
@@ -505,7 +535,6 @@
       </table>
     </div>
 
-    <!-- Resumão -->
     <div style="margin-top:26px">
       <p class="sec-label" style="font-size:1.2rem;margin-bottom:14px">Palavras-chave para Memorizar</p>
       <div class="card">
@@ -513,6 +542,10 @@
         <div class="gloss-row"><span class="gloss-term">Comparação</span><span class="gloss-arrow">→</span><span class="gloss-def">usa "como"</span></div>
         <div class="gloss-row"><span class="gloss-term">Sinestesia</span><span class="gloss-arrow">→</span><span class="gloss-def">mistura sentidos</span></div>
         <div class="gloss-row"><span class="gloss-term">Catacrese</span><span class="gloss-arrow">→</span><span class="gloss-def">nome adaptado</span></div>
+        <div class="gloss-row"><span class="gloss-term">Metonímia</span><span class="gloss-arrow">→</span><span class="gloss-def">troca por relação/associação</span></div>
+        <div class="gloss-row"><span class="gloss-term">Sinédoque</span><span class="gloss-arrow">→</span><span class="gloss-def">parte pelo todo</span></div>
+        <div class="gloss-row"><span class="gloss-term">Hipérbole</span><span class="gloss-arrow">→</span><span class="gloss-def">exagero intencional</span></div>
+        <div class="gloss-row"><span class="gloss-term">Eufemismo</span><span class="gloss-arrow">→</span><span class="gloss-def">suaviza ideia triste/desagradável</span></div>
         <div class="gloss-row"><span class="gloss-term">Literal</span><span class="gloss-arrow">→</span><span class="gloss-def">real</span></div>
         <div class="gloss-row"><span class="gloss-term">Figurado</span><span class="gloss-arrow">→</span><span class="gloss-def">simbólico</span></div>
         <div class="gloss-row"><span class="gloss-term">Citação</span><span class="gloss-arrow">→</span><span class="gloss-def">trecho direto</span></div>
@@ -529,7 +562,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ JS ════════════════ -->
 <script>
   const pages = {
     'literal':           {el:'page-literal',          title:'Literal × Figurado'},
@@ -605,3 +637,5 @@
 </script>
 </body>
 </html>
+
+```

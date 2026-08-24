@@ -1,641 +1,363 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#4A3828" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="Análise Linguística" />
-  <meta name="description" content="Revisão de Análise Linguística por Lucas M" />
-  <title>Análise Linguística — Revisão de Lucas M</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --b50:  #FAF7F2;
-      --b100: #F2EDE3;
-      --b200: #E8DFD0;
-      --b300: #D9CBBA;
-      --b400: #C8B89A;
-      --b500: #B5A080;
-      --br6:  #8C7355;
-      --br7:  #6B5440;
-      --br8:  #4A3828;
-      --br9:  #2E2218;
-      --rust: #A85C38;
-      --rustl:#D4845A;
-      --ink:  #2C2016;
-      --sage: #6B7B5E;
-      --sagel:#C5CFBA;
-    }
-    *{box-sizing:border-box}
-    body{font-family:'Lora',Georgia,serif;background:var(--b50);color:var(--ink);margin:0;min-height:100vh}
-    ::-webkit-scrollbar{width:5px}
-    ::-webkit-scrollbar-track{background:var(--b100)}
-    ::-webkit-scrollbar-thumb{background:var(--b400);border-radius:3px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biologia A | Reino Plantae</title>
+    <style>
+        /* Variáveis de Cores e Estilos */
+        :root {
+            --primary: #1B5E20;
+            --secondary: #4CAF50;
+            --accent: #FFC107;
+            --bg-color: #F1F8E9;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --quiz-bg: #E8F5E9;
+        }
 
-    /* HERO */
-    .hero{background:linear-gradient(150deg,var(--br8) 0%,var(--br7) 55%,var(--rust) 100%);position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h4v4H0V0zm8 8h4v4H8V8zm8 0h4v4h-4V8zm8-8h4v4h-4V0zm8 8h4v4h-4V8z'/%3E%3C/g%3E%3C/svg%3E")}
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    /* SECTION CARD */
-    .section-card{display:none;animation:fadeUp .35s ease both}
-    .section-card.visible{display:block}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-    /* NAV PILL */
-    .nav-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.09);border:1.5px solid rgba(255,255,255,0.18);color:#fff;border-radius:999px;padding:9px 18px;font-family:'Lora',serif;font-size:.88rem;font-weight:500;cursor:pointer;transition:all .2s ease;text-decoration:none;white-space:nowrap}
-    .nav-pill:hover,.nav-pill.active{background:#fff;color:var(--br8);border-color:#fff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.2)}
-    .nav-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--rustl);flex-shrink:0}
-    .nav-pill:hover .dot,.nav-pill.active .dot{background:var(--rust)}
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-    /* HOME BUTTON */
-    .home-btn{display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:#fff;border:1.5px solid var(--b200);border-radius:16px;padding:20px 18px;cursor:pointer;transition:all .22s ease;text-align:left;width:100%;box-shadow:0 2px 8px rgba(44,32,22,.05)}
-    .home-btn:hover{border-color:var(--br7);background:var(--b50);transform:translateY(-2px);box-shadow:0 8px 24px rgba(44,32,22,.12)}
-    .home-btn-icon{font-size:1.45rem;margin-bottom:5px}
-    .home-btn-title{font-family:'Playfair Display',serif;font-weight:700;color:var(--br8);font-size:1rem}
-    .home-btn-desc{color:var(--br6);font-size:.8rem}
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-    /* CARD */
-    .card{background:#fff;border:1px solid var(--b200);border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:0 2px 10px rgba(44,32,22,.05)}
-    .card-title{font-family:'Playfair Display',serif;font-weight:600;color:var(--br8);font-size:1.15rem;margin:0 0 10px}
-    .card p{margin:0 0 9px;line-height:1.75;font-size:.96rem}
-    .card p:last-child{margin-bottom:0}
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
 
-    /* TWO COL */
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media(max-width:580px){.two-col{grid-template-columns:1fr}}
+        /* Navegação */
+        nav {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
 
-    /* EXEMPLO */
-    .exemplo{font-style:italic;color:var(--br7);border-left:3px solid var(--b400);padding:8px 14px;margin:9px 0;background:var(--b50);border-radius:0 8px 8px 0;font-size:.94rem}
-    .exemplo b{font-style:normal;color:var(--rust)}
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-    /* BADGE */
-    .badge{display:inline-block;font-family:'Playfair Display',serif;font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:10px}
-    .b-br{background:var(--br8);color:var(--b100)}
-    .b-rust{background:var(--rust);color:#fff}
-    .b-sage{background:var(--sage);color:#fff}
-    .b-bei{background:var(--b300);color:var(--br8)}
+        nav a:hover {
+            background-color: var(--primary);
+            color: var(--text-light);
+        }
 
-    /* MACETE */
-    .macete{background:linear-gradient(135deg,var(--b100),var(--b200));border:1.5px solid var(--b300);border-radius:10px;padding:11px 15px;margin-top:11px;font-size:.88rem;color:var(--rust);font-weight:600}
-    .macete::before{content:'▸  '}
+        /* Layout Principal */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
 
-    /* REGRA OURO */
-    .regra{background:linear-gradient(135deg,var(--br8),var(--br7));color:var(--b100);border-radius:14px;padding:18px 22px;margin-top:18px;font-size:.95rem;line-height:1.75}
-    .regra strong{color:#fff}
+        .module {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
 
-    /* PASSOS */
-    .passo{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--b200)}
-    .passo:last-child{border-bottom:none}
-    .passo-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--b300);line-height:1;min-width:32px;padding-top:2px}
-    .passo-q{font-weight:600;color:var(--br8);margin-bottom:3px;font-size:.95rem}
-    .passo-r{color:var(--rust);font-weight:600;font-size:.9rem}
+        .module h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
 
-    /* TREINO TABLE */
-    .ttbl{width:100%;border-collapse:collapse;font-size:.91rem}
-    .ttbl thead th{background:var(--br8);color:var(--b100);padding:10px 13px;text-align:left;font-family:'Lora',serif;font-weight:600}
-    .ttbl thead th:first-child{border-radius:10px 0 0 0;width:30px;text-align:center}
-    .ttbl thead th:last-child{border-radius:0 10px 0 0}
-    .ttbl tbody tr:nth-child(odd){background:var(--b50)}
-    .ttbl tbody tr:nth-child(even){background:#fff}
-    .ttbl tbody td{padding:12px 13px;border-bottom:1px solid var(--b200);vertical-align:middle}
-    .ttbl tbody td:first-child{text-align:center;font-weight:700;color:var(--br6);font-family:'Playfair Display',serif}
-    .frase-cell{font-style:italic;color:var(--br7)}
-    .fig-cell{font-weight:700;color:var(--rust)}
+        .module p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
 
-    /* GLOSSÁRIO */
-    .gloss-row{display:flex;gap:0;border-bottom:1px solid var(--b200);padding:10px 0}
-    .gloss-row:last-child{border-bottom:none}
-    .gloss-term{font-family:'Playfair Display',serif;font-weight:600;color:var(--br8);min-width:140px;font-size:.95rem}
-    .gloss-arrow{color:var(--b400);margin:0 10px;font-size:.88rem}
-    .gloss-def{color:var(--br6);font-size:.91rem}
+        /* Seção de Imagens Vetoriais (SVG) */
+        .illustration {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: var(--bg-color);
+            border-radius: 8px;
+        }
 
-    /* INTERTEXTUALIDADE CARDS */
-    .inter-card{border-left:4px solid var(--rust);background:#fff;border-radius:0 12px 12px 0;padding:17px 19px;margin-bottom:13px;box-shadow:0 2px 8px rgba(44,32,22,.05)}
-    .inter-card.sage-c{border-left-color:var(--sage)}
-    .inter-card.br-c{border-left-color:var(--br6)}
+        .illustration svg {
+            max-width: 200px;
+            height: auto;
+        }
 
-    /* SIGNO TABLE */
-    .stbl{width:100%;border-collapse:collapse}
-    .stbl thead th{background:var(--br8);color:var(--b100);padding:12px 16px;text-align:center;font-family:'Playfair Display',serif;font-weight:600;font-size:.98rem}
-    .stbl thead th:first-child{border-radius:10px 0 0 0}
-    .stbl thead th:last-child{border-radius:0 10px 0 0}
-    .stbl .sub-row td{background:var(--b100);color:var(--br7);text-align:center;font-size:.86rem;padding:8px 16px;font-style:italic}
-    .stbl .data-row td{text-align:center;padding:14px 16px;border-bottom:1px solid var(--b200)}
-    .stbl .data-row:nth-child(odd) td{background:#fff}
-    .stbl .data-row:nth-child(even) td{background:var(--b50)}
-    .stbl .sig-word{font-family:'Playfair Display',serif;font-style:italic;color:var(--rust);font-size:1.02rem;font-weight:600}
-    .stbl .sig-def{color:var(--br7);font-size:.9rem}
-    .stbl td:first-child{border-right:1px solid var(--b200)}
+        /* Estilos do Quiz */
+        .quiz-section {
+            background-color: var(--quiz-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 5px solid var(--secondary);
+        }
 
-    /* TOPBAR */
-    .topbar{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--b200)}
-    .topbar-inner{max-width:700px;margin:0 auto;padding:9px 14px;display:flex;align-items:center;gap:8px}
-    .back-btn{display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;color:var(--br7);font-family:'Lora',serif;font-size:.86rem;font-weight:600;padding:6px 10px 6px 5px;border-radius:8px;transition:background .18s}
-    .back-btn:hover{background:var(--b200)}
-    .back-btn svg{width:15px;height:15px}
-    .topbar-title{font-family:'Playfair Display',serif;font-weight:600;color:var(--br8);font-size:.92rem;flex:1;text-align:center}
+        .quiz-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
 
-    /* SECTION TITLE */
-    .sec-label{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--br8);margin:0 0 4px}
-    .sec-sub{color:var(--br6);font-size:.88rem;font-style:italic;margin:0 0 20px}
+        .question {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
 
-    /* INSTALL BANNER */
-    #install-banner{display:none;background:var(--br8);color:var(--b100);padding:11px 15px;align-items:center;justify-content:space-between;gap:10px}
-    #install-banner button{background:var(--rust);color:#fff;border:none;border-radius:8px;padding:7px 15px;font-family:'Lora',serif;font-weight:600;font-size:.84rem;cursor:pointer;white-space:nowrap}
-    .dismiss-btn{background:none !important;color:var(--b400) !important;padding:3px !important;font-size:1.1rem !important}
+        .options {
+            list-style: none;
+        }
 
-    /* KEYWORD PILLS */
-    .kpill{background:var(--br8);color:var(--b100);border-radius:999px;padding:4px 12px;font-size:.79rem;font-weight:600;display:inline-block;margin:3px}
-    .kpill.rust{background:var(--rust);color:#fff}
-    .kpill.sage{background:var(--sage);color:#fff}
-    .kpill.br6{background:var(--br6);color:#fff}
-    .kpill.bei{background:var(--b300);color:var(--br8)}
-    .kpill.br7{background:var(--br7);color:#fff}
-  </style>
+        .options li {
+            margin-bottom: 0.5rem;
+        }
+
+        .options label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary);
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Extras do Professor */
+        .extras {
+            background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+            border-left: 5px solid var(--accent);
+        }
+
+        .extras h2 {
+            border-bottom-color: var(--accent);
+            color: #F57F17;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsividade */
+        @media(max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            nav a { padding: 0.8rem 1rem; font-size: 0.9rem; }
+            .module { padding: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
 
-<div id="install-banner">
-  <span style="font-size:.87rem">📖 Instale como app para estudar offline</span>
-  <div style="display:flex;gap:8px;align-items:center">
-    <button id="install-btn">Instalar</button>
-    <button class="dismiss-btn" id="dismiss-btn">✕</button>
-  </div>
-</div>
+    <header>
+        <h1>Biologia A: Botânica</h1>
+        <p>A conquista do ambiente terrestre: Briófitas, Pteridófitas e Gimnospermas</p>
+    </header>
 
-<div id="page-home">
-  <div class="hero" style="padding:48px 18px 38px">
-    <div style="max-width:700px;margin:0 auto;position:relative;z-index:1">
-      <p style="font-family:'Lora',serif;font-style:italic;color:var(--b400);font-size:.82rem;margin:0 0 10px;letter-spacing:.05em">Revisão de</p>
-      <h1 style="font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:clamp(1.85rem,6vw,2.75rem);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em">Análise<br/>Linguística</h1>
-      <p style="font-family:'Lora',serif;font-style:italic;color:var(--b300);font-size:.97rem;margin:0 0 28px">Lucas M</p>
+    <nav>
+        <a href="#briofitas">Briófitas</a>
+        <a href="#pteridofitas">Pteridófitas</a>
+        <a href="#gimnospermas">Gimnospermas</a>
+        <a href="#extras">Extras do Professor</a>
+    </nav>
 
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:26px">
-        <div style="height:3px;flex:1;background:rgba(255,255,255,.1);border-radius:2px">
-          <div id="progress-bar" style="height:100%;background:var(--rustl);border-radius:2px;width:0%;transition:width .4s ease"></div>
-        </div>
-        <span id="progress-text" style="color:var(--b400);font-size:.77rem;white-space:nowrap">0 / 6 tópicos</span>
-      </div>
+    <main class="container">
 
-      <div style="display:flex;flex-wrap:wrap;gap:8px">
-        <button class="nav-pill" onclick="goTo('literal')"><span class="dot"></span>Literal × Figurado</button>
-        <button class="nav-pill" onclick="goTo('figuras')"><span class="dot"></span>Figuras de Linguagem</button>
-        <button class="nav-pill" onclick="goTo('signo')"><span class="dot"></span>Signo Linguístico</button>
-        <button class="nav-pill" onclick="goTo('intertextualidade')"><span class="dot"></span>Intertextualidade</button>
-        <button class="nav-pill" onclick="goTo('como-identificar')"><span class="dot"></span>Como Identificar</button>
-        <button class="nav-pill" onclick="goTo('treino')"><span class="dot"></span>Treino Rápido</button>
-      </div>
-    </div>
-  </div>
+        <section id="briofitas" class="module">
+            <h2>Briófitas</h2>
+            <p>As <strong>briófitas</strong> (musgos, hepáticas e antóceros) são consideradas as plantas mais primitivas. Foram as primeiras a colonizar o ambiente terrestre, mas ainda apresentam forte dependência da água.</p>
+            <p><strong>Principais Características:</strong> São plantas <em>avasculares</em> (sem xilema e floema), o que limita severamente o seu tamanho. O transporte de nutrientes ocorre por difusão célula a célula. Sua reprodução depende da água para que o anterozoide (gameta masculino flagelado) nade até a oosfera (gameta feminino).</p>
+            <p>No ciclo de vida, a fase duradoura e fotossintetizante é o <strong>Gametófito (n)</strong>, enquanto o Esporófito (2n) é passageiro e depende nutricionalmente do gametófito.</p>
 
-  <div style="max-width:700px;margin:0 auto;padding:26px 15px 52px">
-    <p style="font-family:'Lora',serif;font-size:.81rem;color:var(--br6);font-style:italic;margin:0 0 18px">Toque em um tópico para abrir a revisão completa</p>
+            <div class="illustration">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="80" width="80" height="10" rx="5" fill="#795548" />
+                    <path d="M20,80 Q25,60 30,80 Q35,60 40,80 Q45,60 50,80 Q55,60 60,80 Q65,60 70,80 Q75,60 80,80" fill="#4CAF50" />
+                    <path d="M30,65 Q35,30 25,20" stroke="#8BC34A" stroke-width="2" fill="none" />
+                    <circle cx="25" cy="20" r="4" fill="#689F38" />
+                    <path d="M50,65 Q55,25 45,15" stroke="#8BC34A" stroke-width="2" fill="none" />
+                    <circle cx="45" cy="15" r="4" fill="#689F38" />
+                    <path d="M70,65 Q65,35 75,25" stroke="#8BC34A" stroke-width="2" fill="none" />
+                    <circle cx="75" cy="25" r="4" fill="#689F38" />
+                </svg>
+                <p><em>Representação esquemática: Gametófito (base verde) e Esporófito (haste com cápsula).</em></p>
+            </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <button class="home-btn" onclick="goTo('literal')">
-        <span class="home-btn-icon">📖</span>
-        <span class="home-btn-title">Literal × Figurado</span>
-        <span class="home-btn-desc">Sentido real ou simbólico</span>
-      </button>
-      <button class="home-btn" onclick="goTo('figuras')">
-        <span class="home-btn-icon">🎭</span>
-        <span class="home-btn-title">Figuras de Linguagem</span>
-        <span class="home-btn-desc">Metáfora, comparação e mais</span>
-      </button>
-      <button class="home-btn" onclick="goTo('signo')">
-        <span class="home-btn-icon">🔤</span>
-        <span class="home-btn-title">Signo Linguístico</span>
-        <span class="home-btn-desc">Significante e significado</span>
-      </button>
-      <button class="home-btn" onclick="goTo('intertextualidade')">
-        <span class="home-btn-icon">🔗</span>
-        <span class="home-btn-title">Intertextualidade</span>
-        <span class="home-btn-desc">Citação, alusão e polêmica</span>
-      </button>
-      <button class="home-btn" onclick="goTo('como-identificar')">
-        <span class="home-btn-icon">🔍</span>
-        <span class="home-btn-title">Como Identificar</span>
-        <span class="home-btn-desc">Passo a passo na prova</span>
-      </button>
-      <button class="home-btn" onclick="goTo('treino')">
-        <span class="home-btn-icon">✏️</span>
-        <span class="home-btn-title">Treino Rápido</span>
-        <span class="home-btn-desc">4 questões para fixar</span>
-      </button>
-    </div>
+            <div class="quiz-section">
+                <h3>📝 Quiz de Fixação - Briófitas</h3>
+                <div class="question">1. Por que as briófitas apresentam tamanho reduzido, raramente ultrapassando alguns centímetros?</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q1" value="a"> A) Porque sofrem muita herbivoria na natureza.</label></li>
+                    <li><label><input type="radio" name="q1" value="b"> B) Devido à ausência de tecidos condutores de seiva (são avasculares).</label></li>
+                    <li><label><input type="radio" name="q1" value="c"> C) Porque produzem sementes muito pesadas.</label></li>
+                </ul>
+                <button class="btn-submit" onclick="checkAnswer('q1', 'b', 'feedback-q1')">Responder</button>
+                <div id="feedback-q1" class="feedback"></div>
+            </div>
+        </section>
 
-    <div style="margin-top:22px;background:var(--b100);border-radius:16px;padding:18px 20px;border:1px solid var(--b300)">
-      <p style="font-family:'Playfair Display',serif;font-weight:700;color:var(--br8);margin:0 0 11px;font-size:.98rem">Palavras-chave para memorizar</p>
-      <div>
-        <span class="kpill">Metáfora → comparação escondida</span>
-        <span class="kpill rust">Comparação → usa "como"</span>
-        <span class="kpill sage">Sinestesia → mistura sentidos</span>
-        <span class="kpill br6">Catacrese → nome adaptado</span>
-        <span class="kpill">Metonímia → troca por associação</span>
-        <span class="kpill rust">Sinédoque → parte pelo todo</span>
-        <span class="kpill sage">Hipérbole → exagero</span>
-        <span class="kpill br6">Eufemismo → suavização</span>
-        <span class="kpill bei">Literal → real</span>
-        <span class="kpill bei">Figurado → simbólico</span>
-        <span class="kpill br7">Citação → trecho direto</span>
-        <span class="kpill rust">Alusão → referência indireta</span>
-        <span class="kpill br6">Polêmica → oposição de ideias</span>
-      </div>
-    </div>
+        <section id="pteridofitas" class="module">
+            <h2>Pteridófitas</h2>
+            <p>As <strong>pteridófitas</strong> (samambaias e avencas) representam um grande marco evolutivo na botânica: a aquisição de tecidos vasculares (xilema e floema). Isso permitiu a formação de raízes, caules e folhas verdadeiras, e a possibilidade de atingir tamanhos muito maiores do que as briófitas.</p>
+            <p><strong>Principais Características:</strong> São vasculares, mas ainda não possuem sementes nem flores. Assim como as briófitas, continuam dependentes da água do ambiente para a fecundação (gametas masculinos flagelados).</p>
+            <p>Ocorrência de inversão no ciclo reprodutivo: nas pteridófitas, o <strong>Esporófito (2n)</strong> passa a ser a fase dominante, duradoura e visível (a samambaia em si). O gametófito, chamado de protalo, é pequeno e temporário.</p>
 
-    <p style="text-align:center;color:var(--b400);font-size:.78rem;margin-top:24px;font-style:italic;line-height:1.8">
-      Você percebeu que a matéria inteira é basicamente:<br/>
-      <strong style="color:var(--br6)">"o que o autor realmente quis dizer?"</strong>
-    </p>
-  </div>
-</div>
+            <div class="illustration">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50,90 Q50,40 20,10" stroke="#2E7D32" stroke-width="3" fill="none" />
+                    <path d="M48,80 Q30,75 25,60" stroke="#4CAF50" stroke-width="2.5" fill="none" />
+                    <path d="M46,65 Q30,60 20,45" stroke="#4CAF50" stroke-width="2.5" fill="none" />
+                    <path d="M43,50 Q25,45 15,30" stroke="#4CAF50" stroke-width="2.5" fill="none" />
+                    <path d="M38,35 Q20,30 10,15" stroke="#4CAF50" stroke-width="2.5" fill="none" />
+                    <path d="M48,80 Q65,75 70,60" stroke="#4CAF50" stroke-width="2.5" fill="none" />
+                    <path d="M46,65 Q60,60 65,45" stroke="#4CAF50" stroke-width="2.5" fill="none" />
+                    <path d="M43,50 Q55,45 60,30" stroke="#4CAF50" stroke-width="2.5" fill="none" />
+                </svg>
+                <p><em>Representação esquemática: Folha de uma pteridófita (esporófito).</em></p>
+            </div>
 
-<div class="topbar" id="topbar" style="display:none">
-  <div class="topbar-inner">
-    <button class="back-btn" onclick="goHome()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Início
-    </button>
-    <span class="topbar-title" id="topbar-title"></span>
-    <div style="width:55px"></div>
-  </div>
-</div>
+            <div class="quiz-section">
+                <h3>📝 Quiz de Fixação - Pteridófitas</h3>
+                <div class="question">1. Qual foi a principal novidade evolutiva que surgiu nas pteridófitas e permitiu o crescimento em altura destas plantas?</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q2" value="a"> A) O aparecimento dos vasos condutores de seiva.</label></li>
+                    <li><label><input type="radio" name="q2" value="b"> B) O surgimento da semente.</label></li>
+                    <li><label><input type="radio" name="q2" value="c"> C) A independência da água para reprodução.</label></li>
+                </ul>
+                <button class="btn-submit" onclick="checkAnswer('q2', 'a', 'feedback-q2')">Responder</button>
+                <div id="feedback-q2" class="feedback"></div>
+            </div>
+        </section>
 
-<div id="page-literal" class="section-card">
-  <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
+        <section id="gimnospermas" class="module">
+            <h2>Gimnospermas</h2>
+            <p>As <strong>gimnospermas</strong> (pinheiros, araucárias, sequoias e cicas) marcam a independência definitiva da água para a reprodução. Isso foi possível graças ao surgimento do <strong>grão de pólen</strong> e do <strong>tubo polínico</strong>, que transporta o gameta masculino diretamente até o feminino pelo ar e tecidos da planta, sem necessidade de nadar.</p>
+            <p><strong>Principais Características:</strong> São vasculares, possuem raízes, caule, folhas e <strong>sementes</strong>. O termo "Gimnosperma" significa semente nua, pois a semente não está envolta por um fruto (os frutos surgem apenas nas angiospermas).</p>
+            <p>As estruturas reprodutivas são agrupadas em cones ou estróbilos (como a pinha do pinheiro). O esporófito (2n) é a fase totalmente dominante e a semente protege o embrião, além de garantir reservas nutritivas.</p>
 
-    <p class="sec-label">Sentido Literal × Sentido Figurado</p>
-    <p class="sec-sub">Pensa assim: a linguagem pode falar exatamente o que quer dizer ou pode "brincar" com o significado.</p>
+            <div class="illustration">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="45" y="75" width="10" height="25" fill="#5D4037" />
+                    <polygon points="50,10 20,50 80,50" fill="#2E7D32" />
+                    <polygon points="50,30 15,75 85,75" fill="#388E3C" />
+                </svg>
+                <p><em>Representação esquemática: Pinheiro (esporófito de gimnosperma).</em></p>
+            </div>
 
-    <div class="two-col">
-      <div class="card" style="border-top:4px solid var(--br8)">
-        <span class="badge b-br">Literal</span>
-        <p class="card-title">Sentido Literal</p>
-        <p>É o sentido real.</p>
-        <div class="exemplo">"A porta está aberta."</div>
-        <p>A porta REALMENTE está aberta.</p>
-      </div>
-      <div class="card" style="border-top:4px solid var(--rust)">
-        <span class="badge b-rust">Figurado</span>
-        <p class="card-title">Sentido Figurado</p>
-        <p>É simbólico, exagerado ou emocional.</p>
-        <div class="exemplo">"Meu coração está quebrado."</div>
-        <p>O coração não rachou igual vidro. A pessoa está triste.</p>
-      </div>
-    </div>
+            <div class="quiz-section">
+                <h3>📝 Quiz de Fixação - Gimnospermas</h3>
+                <div class="question">1. A independência da água para a fecundação nas gimnospermas é garantida pela presença de qual estrutura?</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q3" value="a"> A) Fruto carnoso.</label></li>
+                    <li><label><input type="radio" name="q3" value="b"> B) Tubo polínico.</label></li>
+                    <li><label><input type="radio" name="q3" value="c"> C) Anterozoide flagelado.</label></li>
+                </ul>
+                <button class="btn-submit" onclick="checkAnswer('q3', 'b', 'feedback-q3')">Responder</button>
+                <div id="feedback-q3" class="feedback"></div>
+            </div>
+        </section>
 
-    <div class="regra">
-      <strong>Regra de ouro</strong><br/>
-      Se a frase parece impossível fisicamente → provavelmente é sentido figurado.
-    </div>
+        <section id="extras" class="module extras">
+            <h2>💡 Extras do Professor</h2>
+            <p><strong>Resumão de Novidades Evolutivas (Linha do Tempo Botânica)</strong></p>
+            <ul>
+                <li><strong>Briófitas:</strong> Pioneiras terrestres, retenção do embrião no gametófito materno.</li>
+                <li><strong>Pteridófitas:</strong> Primeiras vasculares (traqueófitas), permitindo porte arbóreo (árvores). Primeira vez que o Esporófito se torna a fase dominante.</li>
+                <li><strong>Gimnospermas:</strong> Primeiras espermatófitas (com sementes) e primeiras sifonógamas (com tubo polínico). Finalmente, a água não é mais necessária para o encontro dos gametas!</li>
+            </ul>
+            <p style="margin-top: 15px;"><em>🧠 Macete de Prova:</em> Lembre-se da palavra <strong>VASO</strong>. Antes dela (briófitas), as plantas são pequenas. Depois dela, ficam grandes. Lembre-se da palavra <strong>TUBO (polínico)</strong>. Antes dele (briófitas e pteridófitas), dependem da água para reproduzir. Depois dele, são independentes.</p>
+        </section>
 
-  </div>
-</div>
+    </main>
 
-<div id="page-figuras" class="section-card">
-  <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
+    <footer>
+        <p>Desenvolvido para compor materiais de Biologia A. Estrutura em HTML/CSS/JS puro.</p>
+    </footer>
 
-    <p class="sec-label">Figuras de Linguagem</p>
-    <p class="sec-sub">São formas de deixar a linguagem mais forte, bonita ou expressiva.</p>
+    <script>
+        function checkAnswer(questionName, correctAnswer, feedbackId) {
+            const options = document.getElementsByName(questionName);
+            let selectedValue = null;
+            
+            // Busca qual opção foi selecionada
+            for (let option of options) {
+                if (option.checked) {
+                    selectedValue = option.value;
+                    break;
+                }
+            }
 
-    <div class="card" style="border-left:5px solid var(--br8)">
-      <span class="badge b-br">Metáfora</span>
-      <p>É uma comparação escondida.</p>
-      <div class="exemplo">"Você é um leão."</div>
-      <p>A pessoa NÃO virou um leão. Quer dizer que ela é corajosa.</p>
-      <div class="macete">Metáfora = comparação SEM "como".</div>
-    </div>
+            const feedbackEl = document.getElementById(feedbackId);
 
-    <div class="card" style="border-left:5px solid var(--rust)">
-      <span class="badge b-rust">Comparação</span>
-      <p>Comparação explícita.</p>
-      <div class="exemplo">"Você é forte <b>como</b> um leão."</div>
-      <p>Agora apareceu: <strong>como · igual · parece</strong></p>
-      <div class="macete">Se apareceu "como" → geralmente comparação.</div>
-    </div>
+            // Validação
+            if (!selectedValue) {
+                feedbackEl.style.color = '#F57C00';
+                feedbackEl.textContent = '⚠️ Por favor, selecione uma alternativa antes de responder.';
+                return;
+            }
 
-    <div class="card" style="border-left:5px solid var(--sage)">
-      <span class="badge b-sage">Sinestesia</span>
-      <p>Mistura sentidos do corpo.</p>
-      <p style="font-size:.87rem;color:var(--br6)">Sentidos: visão · audição · tato · paladar · olfato</p>
-      <div class="exemplo">"Uma voz <b>doce</b>."</div>
-      <p>"Doce" é paladar. "Voz" é audição. Misturou sentidos = sinestesia.</p>
-      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Perfume quente" · "Cor gritante"</p>
-      <div class="macete">Dois sentidos diferentes na mesma ideia = Sinestesia.</div>
-    </div>
-
-    <div class="card" style="border-left:5px solid var(--br6)">
-      <span class="badge b-bei">Catacrese</span>
-      <p>Usa uma palavra porque não existe outra melhor.</p>
-      <div class="exemplo">"Braço da cadeira"</div>
-      <p>Mesa não tem pé de verdade. Mas usamos isso automaticamente.</p>
-      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Pé da mesa" · "Dente do alho"</p>
-      <div class="macete">Catacrese = apelido oficial das coisas.</div>
-    </div>
-
-    <div class="card" style="border-left:5px solid var(--br8)">
-      <span class="badge b-br">Metonímia</span>
-      <p>Troca uma palavra por outra que tenha relação.</p>
-      <div class="exemplo">"Li Machado de Assis."</div>
-      <p>Não leu a pessoa. Leu a obra escrita por ele.</p>
-      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Tomar um copo d’água" · "Ouvir Beethoven"</p>
-      <div class="macete">Metonímia = troca por proximidade/associação.</div>
-    </div>
-
-    <div class="card" style="border-left:5px solid var(--rust)">
-      <span class="badge b-rust">Sinédoque</span>
-      <p>Troca uma ideia pelo todo ou o todo pela parte.</p>
-      <div class="exemplo">"Há muitas bocas para alimentar."</div>
-      <p>"Bocas" representa pessoas.</p>
-      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "O Brasil ganhou o jogo" · "Cem cabeças de gado"</p>
-      <div class="macete">Sinédoque = parte pelo todo ou todo pela parte.</div>
-    </div>
-
-    <div class="card" style="border-left:5px solid var(--sage)">
-      <span class="badge b-sage">Hipérbole</span>
-      <p>Exagero intencional.</p>
-      <div class="exemplo">"Estou morrendo de fome."</div>
-      <p>A pessoa não está morrendo de verdade. Foi um exagero para intensificar a ideia.</p>
-      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Chorei rios" · "Esperei uma eternidade"</p>
-      <div class="macete">Hipérbole = exagero.</div>
-    </div>
-
-    <div class="card" style="border-left:5px solid var(--br6)">
-      <span class="badge b-bei">Eufemismo</span>
-      <p>Suaviza uma ideia desagradável.</p>
-      <div class="exemplo">"Ele partiu dessa para melhor."</div>
-      <p>Evita dizer diretamente "morreu".</p>
-      <p style="font-size:.87rem;color:var(--br6);margin-top:8px">Outros exemplos: "Ela descansou" · "Foi morar com Deus"</p>
-      <div class="macete">Eufemismo = suavização de uma ideia forte/triste.</div>
-    </div>
-
-  </div>
-</div>
-
-<div id="page-signo" class="section-card">
-  <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
-
-    <p class="sec-label">Signo Linguístico</p>
-    <p class="sec-sub">Isso parece difícil mas é MUITO simples. Toda palavra tem:</p>
-
-    <div class="two-col" style="margin-bottom:16px">
-      <div class="card" style="border-top:3px solid var(--br8);text-align:center">
-        <p class="card-title" style="text-align:center">Significante</p>
-        <p style="text-align:center;font-size:.9rem">É a PALAVRA em si. O som ou escrita.</p>
-        <div class="exemplo" style="text-align:center">CANETA</div>
-      </div>
-      <div class="card" style="border-top:3px solid var(--rust);text-align:center">
-        <p class="card-title" style="text-align:center">Significado</p>
-        <p style="text-align:center;font-size:.9rem">É a ideia da palavra.</p>
-        <div class="exemplo" style="text-align:center">Objeto usado para escrever.</div>
-      </div>
-    </div>
-
-    <div class="card" style="padding:0;overflow:hidden">
-      <table class="stbl">
-        <thead>
-          <tr>
-            <th>Palavra</th>
-            <th>Significante</th>
-            <th>Significado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="data-row">
-            <td style="font-weight:700;color:var(--br8)">Caneta</td>
-            <td><span class="sig-word">"caneta"</span></td>
-            <td class="sig-def">objeto de escrever</td>
-          </tr>
-          <tr class="data-row">
-            <td style="font-weight:700;color:var(--br8)">Bola</td>
-            <td><span class="sig-word">"bola"</span></td>
-            <td class="sig-def">objeto redondo</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-</div>
-
-<div id="page-intertextualidade" class="section-card">
-  <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
-
-    <p class="sec-label">Intertextualidade</p>
-    <p class="sec-sub">Um texto conversa com outro texto. A escola AMA isso.</p>
-
-    <div class="inter-card">
-      <span class="badge b-rust">Citação</span>
-      <p style="margin:0 0 8px;font-size:.94rem">Pega trecho diretamente.</p>
-      <div class="exemplo">"Penso, logo existo."</div>
-      <p style="margin:5px 0 0;font-size:.88rem;color:var(--br6)">Copiou diretamente.</p>
-    </div>
-
-    <div class="inter-card sage-c">
-      <span class="badge b-sage">Alusão</span>
-      <p style="margin:0 0 8px;font-size:.94rem">Só faz referência indireta.</p>
-      <div class="exemplo">"Ele é um verdadeiro Romeu."</div>
-      <p style="margin:5px 0 0;font-size:.88rem;color:var(--br6)">Não falou da história inteira. Só lembrou dela.</p>
-    </div>
-
-    <div class="inter-card br-c">
-      <span class="badge b-bei">Polêmica / Contraposição</span>
-      <p style="margin:0 0 8px;font-size:.94rem">Quando um texto discorda de outro.</p>
-      <div class="exemplo">Um autor fala: "A tecnologia ajuda."</div>
-      <div class="exemplo" style="margin-top:4px">Outro: "A tecnologia prejudica."</div>
-      <p style="margin:5px 0 0;font-size:.88rem;color:var(--br6)">Ideias opostas.</p>
-    </div>
-
-  </div>
-</div>
-
-<div id="page-como-identificar" class="section-card">
-  <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
-
-    <p class="sec-label">Jeito Mais Fácil de Identificar</p>
-    <p class="sec-sub">A prova normalmente pergunta: qual figura? O autor quis dizer o quê? Há intertextualidade?</p>
-
-    <div class="card">
-      <div class="passo">
-        <span class="passo-num">1</span>
-        <div>
-          <p class="passo-q">A frase é impossível literalmente?</p>
-          <p class="passo-r">Sim → provavelmente figurado.</p>
-        </div>
-      </div>
-      <div class="passo">
-        <span class="passo-num">2</span>
-        <div>
-          <p class="passo-q">Tem "como"?</p>
-          <p class="passo-r">Sim → comparação.&nbsp;&nbsp;Não → talvez metáfora.</p>
-        </div>
-      </div>
-      <div class="passo">
-        <span class="passo-num">3</span>
-        <div>
-          <p class="passo-q">Misturou sentidos?</p>
-          <p class="passo-r">Sim → sinestesia.</p>
-        </div>
-      </div>
-      <div class="passo">
-        <span class="passo-num">4</span>
-        <div>
-          <p class="passo-q">Objeto usando nome de parte humana?</p>
-          <p class="passo-r">"Pé da mesa" → catacrese.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div id="page-treino" class="section-card">
-  <div style="max-width:700px;margin:0 auto;padding:26px 15px 60px">
-
-    <p class="sec-label">Treino Rápido</p>
-    <p class="sec-sub">Identifique a figura de linguagem em cada frase.</p>
-
-    <div class="card" style="padding:0;overflow:hidden">
-      <table class="ttbl">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Frase</th>
-            <th>Figura</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td class="frase-cell">"Ela tem um coração de pedra."</td>
-            <td class="fig-cell">Metáfora</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td class="frase-cell">"Ele corre como um foguete."</td>
-            <td class="fig-cell">Comparação</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td class="frase-cell">"Grito azul."</td>
-            <td class="fig-cell">Sinestesia</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td class="frase-cell">"Braço do sofá."</td>
-            <td class="fig-cell">Catacrese</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div style="margin-top:26px">
-      <p class="sec-label" style="font-size:1.2rem;margin-bottom:14px">Palavras-chave para Memorizar</p>
-      <div class="card">
-        <div class="gloss-row"><span class="gloss-term">Metáfora</span><span class="gloss-arrow">→</span><span class="gloss-def">comparação escondida</span></div>
-        <div class="gloss-row"><span class="gloss-term">Comparação</span><span class="gloss-arrow">→</span><span class="gloss-def">usa "como"</span></div>
-        <div class="gloss-row"><span class="gloss-term">Sinestesia</span><span class="gloss-arrow">→</span><span class="gloss-def">mistura sentidos</span></div>
-        <div class="gloss-row"><span class="gloss-term">Catacrese</span><span class="gloss-arrow">→</span><span class="gloss-def">nome adaptado</span></div>
-        <div class="gloss-row"><span class="gloss-term">Metonímia</span><span class="gloss-arrow">→</span><span class="gloss-def">troca por relação/associação</span></div>
-        <div class="gloss-row"><span class="gloss-term">Sinédoque</span><span class="gloss-arrow">→</span><span class="gloss-def">parte pelo todo</span></div>
-        <div class="gloss-row"><span class="gloss-term">Hipérbole</span><span class="gloss-arrow">→</span><span class="gloss-def">exagero intencional</span></div>
-        <div class="gloss-row"><span class="gloss-term">Eufemismo</span><span class="gloss-arrow">→</span><span class="gloss-def">suaviza ideia triste/desagradável</span></div>
-        <div class="gloss-row"><span class="gloss-term">Literal</span><span class="gloss-arrow">→</span><span class="gloss-def">real</span></div>
-        <div class="gloss-row"><span class="gloss-term">Figurado</span><span class="gloss-arrow">→</span><span class="gloss-def">simbólico</span></div>
-        <div class="gloss-row"><span class="gloss-term">Citação</span><span class="gloss-arrow">→</span><span class="gloss-def">trecho direto</span></div>
-        <div class="gloss-row"><span class="gloss-term">Alusão</span><span class="gloss-arrow">→</span><span class="gloss-def">referência indireta</span></div>
-        <div class="gloss-row"><span class="gloss-term">Polêmica</span><span class="gloss-arrow">→</span><span class="gloss-def">oposição de ideias</span></div>
-      </div>
-    </div>
-
-    <p style="text-align:center;color:var(--b400);font-size:.79rem;margin-top:22px;font-style:italic;line-height:1.85">
-      Você percebeu que a matéria inteira é basicamente:<br/>
-      <strong style="color:var(--br6)">"o que o autor realmente quis dizer?"</strong>
-    </p>
-
-  </div>
-</div>
-
-<script>
-  const pages = {
-    'literal':           {el:'page-literal',          title:'Literal × Figurado'},
-    'figuras':           {el:'page-figuras',          title:'Figuras de Linguagem'},
-    'signo':             {el:'page-signo',            title:'Signo Linguístico'},
-    'intertextualidade': {el:'page-intertextualidade',title:'Intertextualidade'},
-    'como-identificar':  {el:'page-como-identificar', title:'Como Identificar'},
-    'treino':            {el:'page-treino',           title:'Treino Rápido'},
-  };
-
-  let visited = new Set();
-  try { visited = new Set(JSON.parse(localStorage.getItem('visited')||'[]')); } catch(e){}
-
-  function updateProgress(){
-    const pct = (visited.size/6)*100;
-    const bar = document.getElementById('progress-bar');
-    const txt = document.getElementById('progress-text');
-    if(bar) bar.style.width = pct+'%';
-    if(txt) txt.textContent = visited.size+' / 6 tópicos';
-    try { localStorage.setItem('visited', JSON.stringify([...visited])); } catch(e){}
-  }
-
-  function goTo(id){
-    document.getElementById('page-home').style.display = 'none';
-    document.getElementById('topbar').style.display = 'flex';
-    Object.values(pages).forEach(p => document.getElementById(p.el).classList.remove('visible'));
-    const pg = pages[id];
-    document.getElementById(pg.el).classList.add('visible');
-    document.getElementById('topbar-title').textContent = pg.title;
-    visited.add(id);
-    updateProgress();
-    window.scrollTo({top:0,behavior:'smooth'});
-    history.pushState({page:id}, '', '#'+id);
-  }
-
-  function goHome(){
-    document.getElementById('page-home').style.display = 'block';
-    document.getElementById('topbar').style.display = 'none';
-    Object.values(pages).forEach(p => document.getElementById(p.el).classList.remove('visible'));
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
-
-  window.addEventListener('popstate', e => {
-    if(e.state && e.state.page) goTo(e.state.page);
-    else goHome();
-  });
-
-  // Handle direct hash
-  if(location.hash){
-    const id = location.hash.slice(1);
-    if(pages[id]) goTo(id);
-  }
-
-  updateProgress();
-
-  // PWA install
-  let deferredPrompt;
-  window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault();
-    deferredPrompt = e;
-    document.getElementById('install-banner').style.display = 'flex';
-  });
-  document.getElementById('install-btn').addEventListener('click', async () => {
-    if(!deferredPrompt) return;
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    document.getElementById('install-banner').style.display = 'none';
-  });
-  document.getElementById('dismiss-btn').addEventListener('click', () => {
-    document.getElementById('install-banner').style.display = 'none';
-  });
-</script>
+            if (selectedValue === correctAnswer) {
+                feedbackEl.style.color = '#2E7D32'; // Verde de sucesso
+                feedbackEl.textContent = '✅ Resposta Correta! Muito bem.';
+            } else {
+                feedbackEl.style.color = '#D32F2F'; // Vermelho de erro
+                feedbackEl.textContent = '❌ Resposta Incorreta. Revise o conteúdo da seção e tente de novo!';
+            }
+        }
+    </script>
 </body>
 </html>
-
-```

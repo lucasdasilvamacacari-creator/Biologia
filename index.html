@@ -3,359 +3,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biologia A | Reino Plantae</title>
+    <title>Biologia A - Botânica Avançada | Revisão Lucas M</title>
     <style>
-        /* Variáveis de Cores e Estilos */
         :root {
-            --primary: #1B5E20;
-            --secondary: #4CAF50;
-            --accent: #FFC107;
-            --bg-color: #F1F8E9;
-            --text-dark: #333333;
-            --text-light: #FFFFFF;
-            --quiz-bg: #E8F5E9;
+            --bg-color: #f4f7f6;
+            --text-main: #2c3e50;
+            --accent-green: #27ae60;
+            --accent-dark: #1e8449;
+            --card-bg: #ffffff;
+            --border-color: #e0e6ed;
+            --quiz-bg: #fdfefe;
         }
 
-        /* Reset e Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
-            scroll-behavior: smooth;
+            color: var(--text-main);
+            line-height: 1.7;
         }
 
-        /* Cabeçalho */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--text-light);
-            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 4rem 2rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
 
         header p {
             font-size: 1.2rem;
+            font-weight: 300;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Navegação */
-        nav {
-            background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
-
-        nav a {
-            color: var(--primary);
-            text-decoration: none;
-            padding: 1rem 1.5rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: var(--primary);
-            color: var(--text-light);
-        }
-
-        /* Layout Principal */
         .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            max-width: 1100px;
+            margin: -3rem auto 3rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
         }
 
-        .module {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        .nav-tabs {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-bottom: 2px solid var(--accent-green);
         }
 
-        .module h2 {
-            color: var(--primary);
-            border-bottom: 3px solid var(--secondary);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .module p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        /* Seção de Imagens Vetoriais (SVG) */
-        .illustration {
+        .nav-tabs a {
+            flex: 1;
             text-align: center;
-            margin: 2rem 0;
-            padding: 1rem;
-            background: var(--bg-color);
-            border-radius: 8px;
-        }
-
-        .illustration svg {
-            max-width: 200px;
-            height: auto;
-        }
-
-        /* Estilos do Quiz */
-        .quiz-section {
-            background-color: var(--quiz-bg);
-            border-radius: 8px;
             padding: 1.5rem;
-            margin-top: 2rem;
-            border-left: 5px solid var(--secondary);
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        .quiz-section h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
+        .nav-tabs a:hover {
+            background: var(--accent-green);
+            color: white;
         }
 
-        .question {
-            margin-bottom: 1rem;
-            font-weight: 500;
+        .content-section {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
         }
 
-        .options {
-            list-style: none;
+        .content-section h2 {
+            font-size: 2.2rem;
+            color: var(--accent-dark);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-green);
+            display: inline-block;
+            padding-bottom: 0.5rem;
         }
 
-        .options li {
+        .content-section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            color: #2980b9;
+        }
+
+        .content-section p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        .content-section ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .content-section li {
             margin-bottom: 0.5rem;
         }
 
-        .options label {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .highlight-box {
+            background: #e8f8f5;
+            border-left: 5px solid var(--accent-green);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
         }
 
-        .btn-submit {
-            background-color: var(--primary);
+        /* Tabela Comparativa */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            text-align: left;
+        }
+        th {
+            background-color: var(--accent-green);
+            color: white;
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* Estilo do Quiz Avançado */
+        .quiz-container {
+            margin-top: 3rem;
+            border-top: 2px dashed var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .quiz-card {
+            background: var(--quiz-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .quiz-card p.question-text {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .options-list label {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+
+        .options-list label:hover {
+            background: #f0f3f4;
+        }
+
+        .btn-check {
+            background: #34495e;
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
+            padding: 10px 20px;
             border-radius: 5px;
             font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
             margin-top: 1rem;
-            transition: background 0.3s;
+            transition: 0.3s;
         }
 
-        .btn-submit:hover {
-            background-color: var(--secondary);
-        }
+        .btn-check:hover { background: #2c3e50; }
 
         .feedback {
             margin-top: 1rem;
-            font-weight: bold;
-            font-size: 1.1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+            font-weight: 500;
         }
 
-        /* Extras do Professor */
-        .extras {
-            background: linear-gradient(135deg, #FFF8E1, #FFECB3);
-            border-left: 5px solid var(--accent);
+        .feedback.correct {
+            display: block;
+            background: #d4efdf;
+            color: #145a32;
+            border-left: 4px solid #27ae60;
         }
 
-        .extras h2 {
-            border-bottom-color: var(--accent);
-            color: #F57F17;
+        .feedback.wrong {
+            display: block;
+            background: #f2d7d5;
+            color: #7b241c;
+            border-left: 4px solid #c0392b;
         }
 
-        /* Footer */
         footer {
-            background-color: var(--text-dark);
-            color: var(--text-light);
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+            padding: 3rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 4rem;
         }
 
-        /* Responsividade */
-        @media(max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            nav a { padding: 0.8rem 1rem; font-size: 0.9rem; }
-            .module { padding: 1.5rem; }
-        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Biologia A: Botânica</h1>
-        <p>A conquista do ambiente terrestre: Briófitas, Pteridófitas e Gimnospermas</p>
+        <p>Material Completo e Extensivo: Briófitas, Pteridófitas e Gimnospermas com Bateria de Exercícios.</p>
     </header>
 
-    <nav>
-        <a href="#briofitas">Briófitas</a>
-        <a href="#pteridofitas">Pteridófitas</a>
-        <a href="#gimnospermas">Gimnospermas</a>
-        <a href="#extras">Extras do Professor</a>
-    </nav>
+    <div class="container">
+        
+        <nav class="nav-tabs">
+            <a href="#briofitas">1. Briófitas</a>
+            <a href="#pteridofitas">2. Pteridófitas</a>
+            <a href="#gimnospermas">3. Gimnospermas</a>
+            <a href="#extras">4. Extras e Resumo</a>
+        </nav>
 
-    <main class="container">
-
-        <section id="briofitas" class="module">
-            <h2>Briófitas</h2>
-            <p>As <strong>briófitas</strong> (musgos, hepáticas e antóceros) são consideradas as plantas mais primitivas. Foram as primeiras a colonizar o ambiente terrestre, mas ainda apresentam forte dependência da água.</p>
-            <p><strong>Principais Características:</strong> São plantas <em>avasculares</em> (sem xilema e floema), o que limita severamente o seu tamanho. O transporte de nutrientes ocorre por difusão célula a célula. Sua reprodução depende da água para que o anterozoide (gameta masculino flagelado) nade até a oosfera (gameta feminino).</p>
-            <p>No ciclo de vida, a fase duradoura e fotossintetizante é o <strong>Gametófito (n)</strong>, enquanto o Esporófito (2n) é passageiro e depende nutricionalmente do gametófito.</p>
-
-            <div class="illustration">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="80" width="80" height="10" rx="5" fill="#795548" />
-                    <path d="M20,80 Q25,60 30,80 Q35,60 40,80 Q45,60 50,80 Q55,60 60,80 Q65,60 70,80 Q75,60 80,80" fill="#4CAF50" />
-                    <path d="M30,65 Q35,30 25,20" stroke="#8BC34A" stroke-width="2" fill="none" />
-                    <circle cx="25" cy="20" r="4" fill="#689F38" />
-                    <path d="M50,65 Q55,25 45,15" stroke="#8BC34A" stroke-width="2" fill="none" />
-                    <circle cx="45" cy="15" r="4" fill="#689F38" />
-                    <path d="M70,65 Q65,35 75,25" stroke="#8BC34A" stroke-width="2" fill="none" />
-                    <circle cx="75" cy="25" r="4" fill="#689F38" />
-                </svg>
-                <p><em>Representação esquemática: Gametófito (base verde) e Esporófito (haste com cápsula).</em></p>
-            </div>
-
-            <div class="quiz-section">
-                <h3>📝 Quiz de Fixação - Briófitas</h3>
-                <div class="question">1. Por que as briófitas apresentam tamanho reduzido, raramente ultrapassando alguns centímetros?</div>
-                <ul class="options">
-                    <li><label><input type="radio" name="q1" value="a"> A) Porque sofrem muita herbivoria na natureza.</label></li>
-                    <li><label><input type="radio" name="q1" value="b"> B) Devido à ausência de tecidos condutores de seiva (são avasculares).</label></li>
-                    <li><label><input type="radio" name="q1" value="c"> C) Porque produzem sementes muito pesadas.</label></li>
+        <main class="content-section">
+            
+            <!-- BRIÓFITAS -->
+            <div id="briofitas">
+                <h2>1. Briófitas: As Pioneiras Terrestres</h2>
+                <p>As briófitas representam a transição evolutiva do ambiente aquático para o terrestre. Formam um grupo composto por <strong>musgos, hepáticas e antóceros</strong>. Apesar de viverem na terra, são extremamente restritas a locais úmidos e sombreados.</p>
+                
+                <h3>Características Fisiológicas e Anatômicas</h3>
+                <ul>
+                    <li><strong>Avasculares:</strong> Não possuem tecidos condutores (xilema e floema). A condução de água e nutrientes ocorre por difusão e osmose, célula a célula. Isso explica o <em>tamanho reduzido</em> dessas plantas.</li>
+                    <li><strong>Ausência de órgãos verdadeiros:</strong> Não possuem raiz, caule ou folhas, mas sim estruturas análogas chamadas <em>rizoide, cauloide e filoide</em>.</li>
+                    <li><strong>Criptógamas:</strong> Não produzem flores nem sementes. As estruturas reprodutivas são escondidas.</li>
                 </ul>
-                <button class="btn-submit" onclick="checkAnswer('q1', 'b', 'feedback-q1')">Responder</button>
-                <div id="feedback-q1" class="feedback"></div>
-            </div>
-        </section>
 
-        <section id="pteridofitas" class="module">
-            <h2>Pteridófitas</h2>
-            <p>As <strong>pteridófitas</strong> (samambaias e avencas) representam um grande marco evolutivo na botânica: a aquisição de tecidos vasculares (xilema e floema). Isso permitiu a formação de raízes, caules e folhas verdadeiras, e a possibilidade de atingir tamanhos muito maiores do que as briófitas.</p>
-            <p><strong>Principais Características:</strong> São vasculares, mas ainda não possuem sementes nem flores. Assim como as briófitas, continuam dependentes da água do ambiente para a fecundação (gametas masculinos flagelados).</p>
-            <p>Ocorrência de inversão no ciclo reprodutivo: nas pteridófitas, o <strong>Esporófito (2n)</strong> passa a ser a fase dominante, duradoura e visível (a samambaia em si). O gametófito, chamado de protalo, é pequeno e temporário.</p>
-
-            <div class="illustration">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50,90 Q50,40 20,10" stroke="#2E7D32" stroke-width="3" fill="none" />
-                    <path d="M48,80 Q30,75 25,60" stroke="#4CAF50" stroke-width="2.5" fill="none" />
-                    <path d="M46,65 Q30,60 20,45" stroke="#4CAF50" stroke-width="2.5" fill="none" />
-                    <path d="M43,50 Q25,45 15,30" stroke="#4CAF50" stroke-width="2.5" fill="none" />
-                    <path d="M38,35 Q20,30 10,15" stroke="#4CAF50" stroke-width="2.5" fill="none" />
-                    <path d="M48,80 Q65,75 70,60" stroke="#4CAF50" stroke-width="2.5" fill="none" />
-                    <path d="M46,65 Q60,60 65,45" stroke="#4CAF50" stroke-width="2.5" fill="none" />
-                    <path d="M43,50 Q55,45 60,30" stroke="#4CAF50" stroke-width="2.5" fill="none" />
-                </svg>
-                <p><em>Representação esquemática: Folha de uma pteridófita (esporófito).</em></p>
+                <h3>Ciclo Reprodutivo (Alternância de Gerações)</h3>
+                <p>Nas briófitas, o <strong>Gametófito (haploide - n)</strong> é a fase duradoura, autotrófica e dominante. O <strong>Esporófito (diploide - 2n)</strong> é efêmero, não realiza fotossíntese e cresce sobre o gametófito, dependendo dele para nutrição.</p>
+                <div class="highlight-box">
+                    <strong>Importante para o Vestibular:</strong> A fecundação das briófitas <em>depende estritamente da água</em>. O gameta masculino (anterozoide), que é flagelado, precisa nadar em gotas de orvalho ou chuva até o gameta feminino (oosfera) guardado no arquegônio.
+                </div>
             </div>
 
-            <div class="quiz-section">
-                <h3>📝 Quiz de Fixação - Pteridófitas</h3>
-                <div class="question">1. Qual foi a principal novidade evolutiva que surgiu nas pteridófitas e permitiu o crescimento em altura destas plantas?</div>
-                <ul class="options">
-                    <li><label><input type="radio" name="q2" value="a"> A) O aparecimento dos vasos condutores de seiva.</label></li>
-                    <li><label><input type="radio" name="q2" value="b"> B) O surgimento da semente.</label></li>
-                    <li><label><input type="radio" name="q2" value="c"> C) A independência da água para reprodução.</label></li>
+            <!-- PTERIDÓFITAS -->
+            <div id="pteridofitas" style="margin-top: 4rem;">
+                <h2>2. Pteridófitas: A Conquista dos Vasos</h2>
+                <p>O grupo das pteridófitas inclui as samambaias, avencas, cavalinhas e licopódios. O grande marco evolutivo deste grupo é a presença de tecidos de condução, permitindo que as plantas alcançassem grande porte na história evolutiva (inclusive formando as primeiras grandes florestas da Terra).</p>
+
+                <h3>Inovações Evolutivas</h3>
+                <ul>
+                    <li><strong>Plantas Vasculares (Traqueófitas):</strong> Presença de xilema (seiva bruta) e floema (seiva elaborada). Transporte rápido e eficiente.</li>
+                    <li><strong>Órgãos verdadeiros:</strong> Apresentam raízes, caule (geralmente subterrâneo, tipo rizoma) e folhas verdadeiras.</li>
                 </ul>
-                <button class="btn-submit" onclick="checkAnswer('q2', 'a', 'feedback-q2')">Responder</button>
-                <div id="feedback-q2" class="feedback"></div>
-            </div>
-        </section>
 
-        <section id="gimnospermas" class="module">
-            <h2>Gimnospermas</h2>
-            <p>As <strong>gimnospermas</strong> (pinheiros, araucárias, sequoias e cicas) marcam a independência definitiva da água para a reprodução. Isso foi possível graças ao surgimento do <strong>grão de pólen</strong> e do <strong>tubo polínico</strong>, que transporta o gameta masculino diretamente até o feminino pelo ar e tecidos da planta, sem necessidade de nadar.</p>
-            <p><strong>Principais Características:</strong> São vasculares, possuem raízes, caule, folhas e <strong>sementes</strong>. O termo "Gimnosperma" significa semente nua, pois a semente não está envolta por um fruto (os frutos surgem apenas nas angiospermas).</p>
-            <p>As estruturas reprodutivas são agrupadas em cones ou estróbilos (como a pinha do pinheiro). O esporófito (2n) é a fase totalmente dominante e a semente protege o embrião, além de garantir reservas nutritivas.</p>
-
-            <div class="illustration">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="45" y="75" width="10" height="25" fill="#5D4037" />
-                    <polygon points="50,10 20,50 80,50" fill="#2E7D32" />
-                    <polygon points="50,30 15,75 85,75" fill="#388E3C" />
-                </svg>
-                <p><em>Representação esquemática: Pinheiro (esporófito de gimnosperma).</em></p>
+                <h3>Ciclo de Vida e Reprodução</h3>
+                <p>Nas pteridófitas ocorre uma inversão em relação às briófitas: o <strong>Esporófito (2n) passa a ser a fase duradoura e dominante</strong> (a samambaia que vemos nos vasos). O Gametófito (n), chamado de <strong>prótalo</strong>, é pequeno, em formato de coração, fotossintetizante e de vida curta.</p>
+                <p>Em certas épocas do ano, na face inferior das folhas das samambaias, surgem pontinhos escuros chamados <strong>soros</strong>, que são conjuntos de esporângios produtores de esporos.</p>
+                <div class="highlight-box">
+                    <strong>Dependência da Água:</strong> Apesar de vasculares, as pteridófitas continuam dependendo da água para a fecundação, pois seus anterozoides ainda são flagelados e precisam nadar até a oosfera no prótalo.
+                </div>
             </div>
 
-            <div class="quiz-section">
-                <h3>📝 Quiz de Fixação - Gimnospermas</h3>
-                <div class="question">1. A independência da água para a fecundação nas gimnospermas é garantida pela presença de qual estrutura?</div>
-                <ul class="options">
-                    <li><label><input type="radio" name="q3" value="a"> A) Fruto carnoso.</label></li>
-                    <li><label><input type="radio" name="q3" value="b"> B) Tubo polínico.</label></li>
-                    <li><label><input type="radio" name="q3" value="c"> C) Anterozoide flagelado.</label></li>
+            <!-- GIMNOSPERMAS -->
+            <div id="gimnospermas" style="margin-top: 4rem;">
+                <h2>3. Gimnospermas: Sementes e Independência</h2>
+                <p>Compostas por pinheiros, araucárias, sequoias e cicas. Foram as primeiras plantas a conquistarem definitivamente o ambiente terrestre seco e frio. A palavra significa "semente nua" (gymnos = nu; sperma = semente), pois não formam frutos.</p>
+
+                <h3>Grandes Saltos Evolutivos</h3>
+                <ul>
+                    <li><strong>Espermatófitas (Sementes):</strong> O óvulo fecundado se desenvolve em semente (ex: pinhão). A semente protege o embrião contra dessecação e fornece nutrientes (endosperma primário haploide) até a germinação.</li>
+                    <li><strong>Tubo Polínico (Sifonogamia):</strong> O gameta masculino (núcleo espermático) é transportado até a oosfera pelo crescimento de um tubo, dispensando a água ambiental.</li>
+                    <li><strong>Grão de Pólen:</strong> Estrutura transportada pelo vento (anemofilia) contendo o gametófito masculino imaturo.</li>
                 </ul>
-                <button class="btn-submit" onclick="checkAnswer('q3', 'b', 'feedback-q3')">Responder</button>
-                <div id="feedback-q3" class="feedback"></div>
+
+                <h3>Estruturas Reprodutivas</h3>
+                <p>As folhas férteis agrupam-se em estruturas chamadas <strong>estróbilos ou cones</strong> (conhecidos popularmente como pinhas). Não há ovário, logo, não há formação de fruto após a fecundação.</p>
             </div>
-        </section>
 
-        <section id="extras" class="module extras">
-            <h2>💡 Extras do Professor</h2>
-            <p><strong>Resumão de Novidades Evolutivas (Linha do Tempo Botânica)</strong></p>
-            <ul>
-                <li><strong>Briófitas:</strong> Pioneiras terrestres, retenção do embrião no gametófito materno.</li>
-                <li><strong>Pteridófitas:</strong> Primeiras vasculares (traqueófitas), permitindo porte arbóreo (árvores). Primeira vez que o Esporófito se torna a fase dominante.</li>
-                <li><strong>Gimnospermas:</strong> Primeiras espermatófitas (com sementes) e primeiras sifonógamas (com tubo polínico). Finalmente, a água não é mais necessária para o encontro dos gametas!</li>
-            </ul>
-            <p style="margin-top: 15px;"><em>🧠 Macete de Prova:</em> Lembre-se da palavra <strong>VASO</strong>. Antes dela (briófitas), as plantas são pequenas. Depois dela, ficam grandes. Lembre-se da palavra <strong>TUBO (polínico)</strong>. Antes dele (briófitas e pteridófitas), dependem da água para reproduzir. Depois dele, são independentes.</p>
-        </section>
+            <!-- EXTRAS -->
+            <div id="extras" style="margin-top: 4rem;">
+                <h2>4. Extras do Professor</h2>
+                <p>Para não errar em nenhuma prova, memorize esta tabela evolutiva:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Briófitas</th>
+                            <th>Pteridófitas</th>
+                            <th>Gimnospermas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Vasos Condutores</strong></td>
+                            <td>Ausentes (avasculares)</td>
+                            <td>Presentes (vasculares)</td>
+                            <td>Presentes (vasculares)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fase Dominante</strong></td>
+                            <td>Gametófito (n)</td>
+                            <td>Esporófito (2n)</td>
+                            <td>Esporófito (2n)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Depende da Água p/ Fecundação?</strong></td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td>Não (Tubo Polínico)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sementes</strong></td>
+                            <td>Ausente</td>
+                            <td>Ausente</td>
+                            <td>Presente (nua)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flores e Frutos</strong></td>
+                            <td>Ausente</td>
+                            <td>Ausente</td>
+                            <td>Ausente</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-    </main>
+            <!-- BATERIA DE EXERCÍCIOS -->
+            <div class="quiz-container">
+                <h2>📝 Bateria de Exercícios (Fixação e Vestibular)</h2>
+                <p>Teste seus conhecimentos com questões aprofundadas. Clique em "Verificar" para ver a correção detalhada.</p>
+
+                <!-- Questões Briófitas -->
+                <h3 style="margin-top: 2rem;">Briófitas</h3>
+                
+                <div class="quiz-card">
+                    <p class="question-text">01. (ENEM) O musgo, planta muito comum em locais úmidos, apresenta tamanho diminuto devido à sua constituição anatômica. A principal característica estrutural que limita o seu crescimento vertical é a ausência de:</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q1" value="a"> a) sementes para a dispersão.</label></li>
+                        <li><label><input type="radio" name="q1" value="b"> b) vasos condutores de seiva.</label></li>
+                        <li><label><input type="radio" name="q1" value="c"> c) clorofila no gametófito.</label></li>
+                        <li><label><input type="radio" name="q1" value="d"> d) sistema radicular profundo.</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q1', 'b')">Verificar Resposta</button>
+                    <div id="feedback-q1" class="feedback"></div>
+                </div>
+
+                <div class="quiz-card">
+                    <p class="question-text">02. Sobre o ciclo de vida das briófitas, assinale a alternativa correta:</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q2" value="a"> a) O esporófito é a fase duradoura e clorofilada.</label></li>
+                        <li><label><input type="radio" name="q2" value="b"> b) Os anterozoides são imóveis e levados pelo vento.</label></li>
+                        <li><label><input type="radio" name="q2" value="c"> c) A fase dominante e autotrófica é o gametófito haploide (n).</label></li>
+                        <li><label><input type="radio" name="q2" value="d"> d) Produzem sementes nuas no interior de cápsulas.</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q2', 'c')">Verificar Resposta</button>
+                    <div id="feedback-q2" class="feedback"></div>
+                </div>
+
+                <div class="quiz-card">
+                    <p class="question-text">03. Como é chamado o gameta feminino das briófitas e onde ele é produzido?</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q3" value="a"> a) Oosfera, produzida no arquegônio.</label></li>
+                        <li><label><input type="radio" name="q3" value="b"> b) Anterozoide, produzido no anterídio.</label></li>
+                        <li><label><input type="radio" name="q3" value="c"> c) Esporo, produzido na cápsula.</label></li>
+                        <li><label><input type="radio" name="q3" value="d"> d) Óvulo, produzido no ovário.</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q3', 'a')">Verificar Resposta</button>
+                    <div id="feedback-q3" class="feedback"></div>
+                </div>
+
+                <!-- Questões Pteridófitas -->
+                <h3 style="margin-top: 3rem;">Pteridófitas</h3>
+
+                <div class="quiz-card">
+                    <p class="question-text">04. (FUVEST) A grande novidade evolutiva que permitiu às pteridófitas atingirem tamanhos muito maiores que as briófitas foi:</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q4" value="a"> a) o surgimento da semente.</label></li>
+                        <li><label><input type="radio" name="q4" value="b"> b) a independência da água para a reprodução.</label></li>
+                        <li><label><input type="radio" name="q4" value="c"> c) o desenvolvimento de tecidos condutores (xilema e floema).</label></li>
+                        <li><label><input type="radio" name="q4" value="d"> d) a formação de um prótalo resistente ao calor.</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q4', 'c')">Verificar Resposta</button>
+                    <div id="feedback-q4" class="feedback"></div>
+                </div>
+
+                <div class="quiz-card">
+                    <p class="question-text">05. As pequenas manchas marrons encontradas na face inferior das folhas das samambaias são chamadas de _______ e abrigam os _______.</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q5" value="a"> a) esporângios / gametas</label></li>
+                        <li><label><input type="radio" name="q5" value="b"> b) soros / esporângios produtores de esporos</label></li>
+                        <li><label><input type="radio" name="q5" value="c"> c) sementes / embriões</label></li>
+                        <li><label><input type="radio" name="q5" value="d"> d) estróbilos / grãos de pólen</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q5', 'b')">Verificar Resposta</button>
+                    <div id="feedback-q5" class="feedback"></div>
+                </div>
+
+                <div class="quiz-card">
+                    <p class="question-text">06. O que as pteridófitas ainda têm em comum com as briófitas no aspecto reprodutivo?</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q6" value="a"> a) Ambas produzem tubos polínicos.</label></li>
+                        <li><label><input type="radio" name="q6" value="b"> b) A fase esporofítica de ambas é dominante.</label></li>
+                        <li><label><input type="radio" name="q6" value="c"> c) Ambas necessitam da água para que o anterozoide nade até a oosfera.</label></li>
+                        <li><label><input type="radio" name="q6" value="d"> d) Nenhuma das duas possui epiderme.</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q6', 'c')">Verificar Resposta</button>
+                    <div id="feedback-q6" class="feedback"></div>
+                </div>
+
+                <!-- Questões Gimnospermas -->
+                <h3 style="margin-top: 3rem;">Gimnospermas</h3>
+
+                <div class="quiz-card">
+                    <p class="question-text">07. Qual é a principal característica que define uma planta como "gimnosperma"?</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q7" value="a"> a) Presença de flores coloridas e frutos carnosos.</label></li>
+                        <li><label><input type="radio" name="q7" value="b"> b) Produção de sementes desprotegidas por frutos (sementes nuas).</label></li>
+                        <li><label><input type="radio" name="q7" value="c"> c) Ausência total de tecidos vasculares.</label></li>
+                        <li><label><input type="radio" name="q7" value="d"> d) Retenção dos esporos na raiz da planta.</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q7', 'b')">Verificar Resposta</button>
+                    <div id="feedback-q7" class="feedback"></div>
+                </div>
+
+                <div class="quiz-card">
+                    <p class="question-text">08. (UNICAMP) A independência da água para a ocorrência da fecundação nas gimnospermas se deve ao surgimento evolutivo do(a):</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q8" value="a"> a) fruto.</label></li>
+                        <li><label><input type="radio" name="q8" value="b"> b) tubo polínico.</label></li>
+                        <li><label><input type="radio" name="q8" value="c"> c) raiz pivotante profunda.</label></li>
+                        <li><label><input type="radio" name="q8" value="d"> d) semente nua.</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q8', 'b')">Verificar Resposta</button>
+                    <div id="feedback-q8" class="feedback"></div>
+                </div>
+
+                <div class="quiz-card">
+                    <p class="question-text">09. O pinhão, alimento muito consumido na região Sul do Brasil, é gerado pela araucária. O pinhão representa, botanicamente:</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q9" value="a"> a) o fruto da araucária.</label></li>
+                        <li><label><input type="radio" name="q9" value="b"> b) o esporo masculino não fecundado.</label></li>
+                        <li><label><input type="radio" name="q9" value="c"> c) a semente da gimnosperma contendo o embrião e reservas nutricionais.</label></li>
+                        <li><label><input type="radio" name="q9" value="d"> d) o pseudofruto derivado do receptáculo floral.</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q9', 'c')">Verificar Resposta</button>
+                    <div id="feedback-q9" class="feedback"></div>
+                </div>
+                
+                <div class="quiz-card">
+                    <p class="question-text">10. O transporte dos grãos de pólen nas gimnospermas é realizado predominantemente por:</p>
+                    <ul class="options-list">
+                        <li><label><input type="radio" name="q10" value="a"> a) Aves (ornitofilia).</label></li>
+                        <li><label><input type="radio" name="q10" value="b"> b) Insetos (entomofilia).</label></li>
+                        <li><label><input type="radio" name="q10" value="c"> c) Vento (anemofilia).</label></li>
+                        <li><label><input type="radio" name="q10" value="d"> d) Água (hidrofilia).</label></li>
+                    </ul>
+                    <button class="btn-check" onclick="checkAnswer('q10', 'c')">Verificar Resposta</button>
+                    <div id="feedback-q10" class="feedback"></div>
+                </div>
+
+            </div>
+        </main>
+    </div>
 
     <footer>
-        <p>Desenvolvido para compor materiais de Biologia A. Estrutura em HTML/CSS/JS puro.</p>
+        <p>&copy; 2024 Revisão Lucas M - Plataforma Pessoal de Estudos</p>
+        <p style="font-size: 0.9rem; margin-top: 10px; color: #7f8c8d;">Material de Botânica - Estrutura HTML/CSS/JS</p>
     </footer>
 
+    <!-- Lógica do Quiz com Gabarito -->
     <script>
-        function checkAnswer(questionName, correctAnswer, feedbackId) {
-            const options = document.getElementsByName(questionName);
-            let selectedValue = null;
+        const explicacoes = {
+            'q1': 'Gabarito: B. Por serem avasculares (sem xilema/floema), a condução celular é lenta e ineficiente para grandes distâncias, limitando o tamanho da planta.',
+            'q2': 'Gabarito: C. Nas briófitas, a fase que você sempre vê verdinha (musgo) é o gametófito, que é haploide (n) e autotrófico.',
+            'q3': 'Gabarito: A. A oosfera é o gameta feminino, que fica protegido dentro do vaso reprodutivo chamado arquegônio.',
+            'q4': 'Gabarito: C. A aquisição de tecidos condutores (vasos) resolveu o problema de transporte de água e nutrientes, permitindo o porte arbóreo.',
+            'q5': 'Gabarito: B. Os soros são agrupamentos de esporângios, que por sua vez produzem e liberam os esporos (fase de dispersão).',
+            'q6': 'Gabarito: C. Ambas as plantas possuem o gameta masculino (anterozoide) flagelado, necessitando de uma lâmina de água para nadar até a oosfera.',
+            'q7': 'Gabarito: B. Gimnospermas produzem sementes, mas como não possuem ovário em suas estruturas reprodutivas (estróbilos), não formam frutos.',
+            'q8': 'Gabarito: B. O tubo polínico é uma estrutura que cresce a partir do grão de pólen, guiando o núcleo espermático até o gameta feminino por dentro da planta.',
+            'q9': 'Gabarito: C. O pinhão não é um fruto! É a semente da Araucária (uma gimnosperma), sendo altamente rica em reservas nutritivas para o embrião.',
+            'q10': 'Gabarito: C. Como não produzem flores atrativas, néctar ou frutos, as gimnospermas dependem do vento (anemofilia) para espalhar seu pólen (que muitas vezes possui sacos aéreos para flutuar).'
+        };
+
+        function checkAnswer(question, correctAnswer) {
+            const options = document.getElementsByName(question);
+            let selected = null;
             
-            // Busca qual opção foi selecionada
-            for (let option of options) {
-                if (option.checked) {
-                    selectedValue = option.value;
+            for (let opt of options) {
+                if (opt.checked) {
+                    selected = opt.value;
                     break;
                 }
             }
 
-            const feedbackEl = document.getElementById(feedbackId);
+            const feedbackDiv = document.getElementById(`feedback-${question}`);
 
-            // Validação
-            if (!selectedValue) {
-                feedbackEl.style.color = '#F57C00';
-                feedbackEl.textContent = '⚠️ Por favor, selecione uma alternativa antes de responder.';
+            if (!selected) {
+                feedbackDiv.className = 'feedback';
+                feedbackDiv.style.display = 'block';
+                feedbackDiv.style.background = '#fcf3cf';
+                feedbackDiv.style.color = '#7d6608';
+                feedbackDiv.style.borderLeft = '4px solid #f1c40f';
+                feedbackDiv.innerHTML = '⚠️ Por favor, selecione uma alternativa.';
                 return;
             }
 
-            if (selectedValue === correctAnswer) {
-                feedbackEl.style.color = '#2E7D32'; // Verde de sucesso
-                feedbackEl.textContent = '✅ Resposta Correta! Muito bem.';
+            if (selected === correctAnswer) {
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.innerHTML = `✅ <strong>Correto!</strong><br><br>${explicacoes[question]}`;
             } else {
-                feedbackEl.style.color = '#D32F2F'; // Vermelho de erro
-                feedbackEl.textContent = '❌ Resposta Incorreta. Revise o conteúdo da seção e tente de novo!';
+                feedbackDiv.className = 'feedback wrong';
+                feedbackDiv.innerHTML = `❌ <strong>Incorreto!</strong> A alternativa correta era a letra <strong>${correctAnswer.toUpperCase()}</strong>.<br><br><em>Explicação:</em> ${explicacoes[question]}`;
             }
         }
     </script>
